@@ -18,34 +18,53 @@ Crear cada uno de estos vehículos desde cero usando el constructor de una clase
 
 -   Prototype ofrece flexibilidad para manejar nuevas configuraciones y cambios sin requerir una reestructuración completa del código.
 
-## Código en JS
-```javascript
+## Código en C#
+```C#
 // Clase base Vehicle
-class Vehicle {
-  constructor(type, color, engine) {
-    this.type = type;
-    this.color = color;
-    this.engine = engine;
-  }
+public class Vehicle
+{
+    public string Type { get; set; }
+    public string Color { get; set; }
+    public string Engine { get; set; }
 
-  // Método para clonar el vehículo actual
-  clone() {
-    return new Vehicle(this.type, this.color, this.engine);
-  }
+    // Constructor
+    public Vehicle(string type, string color, string engine)
+    {
+        Type = type;
+        Color = color;
+        Engine = engine;
+    }
+
+    // Método para clonar el vehículo actual
+    public Vehicle Clone()
+    {
+        return new Vehicle(Type, Color, Engine);
+    }
 }
 
 // Crear prototipos específicos
-const carPrototype = new Vehicle("Car", "Red", "V4");
-const truckPrototype = new Vehicle("Truck", "Blue", "V8");
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Vehicle carPrototype = new Vehicle("Car", "Red", "V4");
+        Vehicle truckPrototype = new Vehicle("Truck", "Blue", "V8");
 
-// Clonar los prototipos para crear nuevos vehículos
-const car1 = carPrototype.clone();
-const car2 = carPrototype.clone();
-const truck1 = truckPrototype.clone();
+        // Clonar los prototipos para crear nuevos vehículos
+        Vehicle car1 = carPrototype.Clone();
+        Vehicle car2 = carPrototype.Clone();
+        Vehicle truck1 = truckPrototype.Clone();
 
-// Modificar algunas propiedades si es necesario
-car1.color = "Black";
-truck1.engine = "V10";
+        // Modificar algunas propiedades si es necesario
+        car1.Color = "Black";
+        truck1.Engine = "V10";
+
+        // Mostrar resultados
+        System.Console.WriteLine($"Car1: {car1.Type}, Color: {car1.Color}, Engine: {car1.Engine}");
+        System.Console.WriteLine($"Car2: {car2.Type}, Color: {car2.Color}, Engine: {car2.Engine}");
+        System.Console.WriteLine($"Truck1: {truck1.Type}, Color: {truck1.Color}, Engine: {truck1.Engine}");
+    }
+}
 
 
 ```

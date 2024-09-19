@@ -18,6 +18,8 @@ Crear cada uno de estos vehículos desde cero usando el constructor de una clase
 
 -   Prototype ofrece flexibilidad para manejar nuevas configuraciones y cambios sin requerir una reestructuración completa del código.
 
+https://dotnetfiddle.net/hz4c5E 
+
 ## Código en C#
 ```C#
 // Clase base Vehicle
